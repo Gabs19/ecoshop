@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecoshop">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SingUp"></activity>
+        <activity android:name=".Login" />
+        <activity android:name=".MainActivity" />
+
+        <activity android:name=".SplashScreen" android:theme="@style/AppCompat.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

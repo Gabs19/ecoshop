@@ -2,9 +2,14 @@
     <!-- Base application theme. -->
     <style name="Theme.Ecoshop" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryDark">@color/purple_700</item>
-        <item name="colorAccent">@color/teal_200</item>
+        <item name="colorPrimary">@color/dark_green</item>
+        <item name="colorPrimaryDark">@color/background_color_bar</item>
+        <item name="colorAccent">@color/background_color</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="AppCompat.FullScreen" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
 </resources>
