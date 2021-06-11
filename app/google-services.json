@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "702030674948",
+    "firebase_url": "https://ifmaisempreendedor-72112-default-rtdb.firebaseio.com",
+    "project_id": "ifmaisempreendedor-72112",
+    "storage_bucket": "ifmaisempreendedor-72112.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702030674948:android:b0e50d487376daa9478951",
+        "android_client_info": {
+          "package_name": "com.example.ecoshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702030674948-pfkm5l5n1bmj5tng0fcp6945ah0ju881.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ecoshop",
+            "certificate_hash": "efea3e9b70ca3c4d5e20436d2b8edff919dda6e5"
+          }
+        },
+        {
+          "client_id": "702030674948-9v7aeskj7k8atfk7uqcr6cp1hlq8230v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnIEXeTtpabB5zqIVPD_lZC3b78BnbAlk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702030674948-9v7aeskj7k8atfk7uqcr6cp1hlq8230v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

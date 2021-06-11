@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
-    tools:context=".SingUp">
+    tools:context=".SignUp">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -138,7 +138,7 @@
         android:text="Cadastrar" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/entre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cadastrar"
