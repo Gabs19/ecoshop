@@ -1,8 +1,11 @@
 package com.example.ecoshop;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Login extends AppCompatActivity {
 
@@ -10,11 +13,19 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        cadastro();
+
+        TextView btnCadastreSe = (TextView) findViewById(R.id.cadastre_se);
+
+        btnCadastreSe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cadastro();
+            }
+        });
     }
 
     private void cadastro() {
-        Intent cadastroIntent = new Intent(Login.this,SingUp.class);
+        Intent cadastroIntent = new Intent(Login.this, SignUp.class);
         startActivity(cadastroIntent);
         finish();
     }
