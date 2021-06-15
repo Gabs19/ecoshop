@@ -5,7 +5,7 @@ public class User {
     private String name;
     private String email;
     private String password;
-//    private String type;
+//    private boolean seller;
 
     public User() {
     }
@@ -46,13 +46,6 @@ public class User {
         this.password = password;
     }
 
-//    public String getType() {
-//        return type;
-//    }
-//
-//    public void setType(String type) {
-//        this.type = type;
-//    }
 
     @Override
     public String toString() {
