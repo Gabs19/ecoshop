@@ -5,15 +5,20 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.ecoshop.authentication.Conection;
 import com.example.ecoshop.model.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.UUID;
 
 public class SignUp extends AppCompatActivity {
 
@@ -25,6 +30,7 @@ public class SignUp extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +54,12 @@ public class SignUp extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        auth = Conection.getFirebaseAuth();
+    }
+
     private void entre(){
         Intent intentLoginPage = new Intent(SignUp.this,Login.class);
         startActivity(intentLoginPage);
@@ -61,19 +73,41 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void cadastro() {
-        User user = new User();
+        String email = inputEmail.getText().toString();
+        String password = inputPassword.getText().toString();
 
-        user.setId(UUID.randomUUID().toString());
-        user.setName(inputName.getText().toString());
-        user.setEmail(inputEmail.getText().toString());
-        user.setPassword(inputPassword.getText().toString());
-
-        databaseReference.child("User").child(user.getId()).setValue(user);
-
-        Intent home = new Intent(SignUp.this, MainActivity.class);
-        startActivity(home);
-        finish();
+        cadastroEmaileSenha(email,password);
     }
 
+    private void cadastroEmaileSenha(String email, String password){
 
+        auth.createUserWithEmailAndPassword(email,password)
+                .addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            User user = new User();
+
+                            user.setId(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                            user.setName(inputName.getText().toString());
+                            user.setEmail(inputEmail.getText().toString());
+                            user.setPassword(inputPassword.getText().toString());
+
+                            databaseReference.child("User").child(user.getId()).setValue(user);
+
+                            alert("Cadastrar feito com sucesso");
+
+                            Intent home = new Intent(SignUp.this, MainActivity.class);
+                            startActivity(home);
+                            finish();
+                        } else {
+                            alert("Erro ao Cadastrar");
+                        }
+                    }
+                });
+    }
+
+    private void alert(String msg) {
+        Toast.makeText(SignUp.this,msg, Toast.LENGTH_SHORT).show();
+    }
 }

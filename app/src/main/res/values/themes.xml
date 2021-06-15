@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Ecoshop" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.Ecoshop" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/dark_green</item>
         <item name="colorPrimaryDark">@color/background_color_bar</item>
