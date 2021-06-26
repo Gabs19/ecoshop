@@ -26,7 +26,6 @@ public class SignUp extends AppCompatActivity {
 
     private EditText inputName, inputEmail, inputPassword;
     private Button btnSignUp;
-//    private CheckBox inputType;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;

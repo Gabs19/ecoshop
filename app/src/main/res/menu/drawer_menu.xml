@@ -4,6 +4,11 @@
     tools:showIn="navigation_view">
 
     <group  android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_shop"
+            android:icon="@drawable/ic_shop"
+            android:title="Mercado" />
+
         <item android:id="@+id/nav_add"
             android:icon="@drawable/ic_add"
             android:title="Adicionar produto" />
@@ -12,11 +17,7 @@
             android:icon="@drawable/ic_fav"
             android:title="Favoritos" />
 
-        <item android:id="@+id/id_shop"
-            android:icon="@drawable/ic_shop"
-            android:title="Mercado" />
-
-        <item android:id="@+id/id_calendar"
+        <item android:id="@+id/nav_calendar"
             android:icon="@drawable/ic_calendar"
             android:title="Calendario"/>
     </group>
