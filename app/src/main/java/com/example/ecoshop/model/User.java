@@ -5,7 +5,7 @@ public class User {
     private String name;
     private String email;
     private String password;
-//    private boolean seller;
+    private boolean seller;
 
     public User() {
     }
@@ -15,7 +15,7 @@ public class User {
         this.name = name;
         this.email = email;
         this.password = password;
-//        this.type = type;
+        this.seller = false;
     }
 
     public String getId() { return  id; }
@@ -46,6 +46,9 @@ public class User {
         this.password = password;
     }
 
+    public boolean isSeller() {return seller;}
+
+    public void setSeller(boolean seller) {this.seller = seller;}
 
     @Override
     public String toString() {
