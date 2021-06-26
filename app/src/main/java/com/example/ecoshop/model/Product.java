@@ -1,6 +1,6 @@
 package com.example.ecoshop.model;
 
-class Product {
+public class Product {
     private String nome;
     private String description;
     private float price;
