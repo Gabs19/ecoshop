@@ -9,6 +9,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.ecoshop.authentication.Conection;
 import com.example.ecoshop.fragments.AddProducts;
 import com.example.ecoshop.fragments.Calendar;
 import com.example.ecoshop.fragments.Favorites;
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.logout:
 //                função de logout aqui.
+                Conection.logOut();
                 break;
         }
 
