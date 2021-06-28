@@ -63,6 +63,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.settings:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Settings()).commit();
                 break;
+
+            case R.id.logout:
+//                função de logout aqui.
+                break;
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
