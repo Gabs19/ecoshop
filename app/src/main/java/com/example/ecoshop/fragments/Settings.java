@@ -57,8 +57,11 @@ public class Settings extends Fragment {
 
     public void seller(){
         if(user != null) {
-            databaseReference.child("User").child(user.getUid()).child("seller").setValue(true);
-            sellerBtn.setText("Deixe de ser Vendedor");
+            if (sellerBtn.getText().equals("Torne-se Vendedor")){
+                databaseReference.child("User").child(user.getUid()).child("seller").setValue(true);
+            } else {
+                sellerBtn.setText("Deixe de ser Vendedor");
+            }
         }
     }
 }
