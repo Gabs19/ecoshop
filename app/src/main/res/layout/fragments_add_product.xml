@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/background_color">
+    >
 
     <ImageView
         android:id="@+id/imageView3"
@@ -32,6 +32,73 @@
         android:text="Adicione o produto"
         android:textColor="@color/black"
         android:textSize="30dp" />
+
+    <EditText
+        android:id="@+id/produc_name"
+        android:layout_width="360dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="103dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="11dp"
+        android:ems="10"
+        android:hint="Nome do produto"
+        android:textAlignment="center"
+        android:background="@drawable/input_round"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/product_desc"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/produc_name"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="11dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:background="@drawable/input_round"
+        android:textAlignment="center"
+        android:hint="Descrição do produto" />
+
+    <EditText
+        android:id="@+id/product_price"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@+id/product_desc"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_toStartOf="@+id/btn_register_product"
+        android:layout_toLeftOf="@+id/btn_register_product"
+        android:background="@drawable/input_round"
+        android:ems="10"
+        android:hint="Preço do produto"
+        android:inputType="numberDecimal"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/btn_register_product"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_desc"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:background="@drawable/btn_arredondado"
+        android:textColor="@color/white"
+        android:text="Registrar"
+        tools:ignore="UnknownId" />
 
 
 </RelativeLayout>
