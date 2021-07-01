@@ -34,7 +34,7 @@
         android:textSize="30dp" />
 
     <EditText
-        android:id="@+id/produc_name"
+        android:id="@+id/product_name"
         android:layout_width="360dp"
         android:layout_height="60dp"
         android:layout_below="@+id/textView5"
@@ -53,7 +53,7 @@
         android:id="@+id/product_desc"
         android:layout_width="360dp"
         android:layout_height="100dp"
-        android:layout_below="@+id/produc_name"
+        android:layout_below="@+id/product_name"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="25dp"
