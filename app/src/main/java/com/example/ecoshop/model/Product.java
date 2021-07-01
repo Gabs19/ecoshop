@@ -4,13 +4,13 @@ public class Product {
     private String id;
     private String name;
     private String description;
-    private float price;
+    private double price;
     private String seller;
 
     public Product() {
     }
 
-    public Product(String id, String nome, String description, float price, String seller) {
+    public Product(String id, String nome, String description,double price, String seller) {
         this.id = id;
         this.name = nome;
         this.description = description;
@@ -42,11 +42,11 @@ public class Product {
         this.description = description;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -56,5 +56,10 @@ public class Product {
 
     public void setSeller(String seller) {
         this.seller = seller;
+    }
+
+    @Override
+    public String toString() {
+        return name ;
     }
 }
