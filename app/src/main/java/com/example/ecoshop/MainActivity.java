@@ -1,5 +1,6 @@
 package com.example.ecoshop;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -9,18 +10,21 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.ecoshop.authentication.Conection;
 import com.example.ecoshop.fragments.AddProducts;
 import com.example.ecoshop.fragments.Calendar;
 import com.example.ecoshop.fragments.Favorites;
 import com.example.ecoshop.fragments.Settings;
 import com.example.ecoshop.fragments.Shop;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout drawerLayout;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Shop()).commit();
             navigationView.setCheckedItem(R.id.nav_shop);
         }
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        auth = Conection.getFirebaseAuth();
+
     }
 
     @Override
@@ -66,6 +77,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.logout:
 //                função de logout aqui.
+                auth.signOut();
+                finish();
+                startActivity(new Intent(this, Login.class));
                 break;
         }
 
