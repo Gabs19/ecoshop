@@ -1,22 +1,37 @@
 package com.example.ecoshop.model;
 
 public class Product {
-    private String nome;
+    private String id;
+    private String name;
     private String description;
-    private float price;
+    private double price;
+    private String seller;
 
-    public Product(String nome, String description, float price) {
-        this.nome = nome;
+    public Product() {
+    }
+
+    public Product(String id, String nome, String description,double price, String seller) {
+        this.id = id;
+        this.name = nome;
         this.description = description;
         this.price = price;
+        this.seller = seller;
     }
 
-    public String getNome() {
-        return nome;
+    public String getId() {
+        return id;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -27,11 +42,24 @@ public class Product {
         this.description = description;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getSeller() {
+        return seller;
+    }
+
+    public void setSeller(String seller) {
+        this.seller = seller;
+    }
+
+    @Override
+    public String toString() {
+        return name ;
     }
 }
