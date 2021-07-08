@@ -1,13 +1,13 @@
 package com.example.ecoshop;
 
-import java.text.DecimalFormat;
+import java.math.RoundingMode;
+import java.math.BigDecimal;
 
 public class Utils {
 
     public double decimalFormat(double price) {
-        DecimalFormat df = new DecimalFormat("##.##");
-        double priceFormat = Float.parseFloat(df.format(price));
-        return priceFormat;
+        BigDecimal df = new BigDecimal(price).setScale(2,RoundingMode.HALF_UP);
+        return df.doubleValue();
     }
 
 
