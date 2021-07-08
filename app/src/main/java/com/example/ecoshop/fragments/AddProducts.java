@@ -58,8 +58,8 @@ public class AddProducts extends Fragment {
         if (user != null) {
             Product product = new Product();
             product.setId(UUID.randomUUID().toString());
-            product.setName(nameProduct.getText().toString());
-            product.setDescription(descProduct.getText().toString());
+            product.setName(nameProduct.getText().toString().toLowerCase());
+            product.setDescription(descProduct.getText().toString().toLowerCase());
             product.setPrice(Float.parseFloat(price.getText().toString()));
             product.setSeller(user.getUid());
 
