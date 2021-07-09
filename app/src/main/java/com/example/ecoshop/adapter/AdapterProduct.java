@@ -1,4 +1,4 @@
-package com.example.ecoshop;
+package com.example.ecoshop.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ecoshop.R;
+import com.example.ecoshop.Utils;
 import com.example.ecoshop.model.Product;
 
 import java.util.ArrayList;
@@ -56,26 +58,4 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         }
     }
 
-//    public AdapterProduct(Context context, int resource, List<Product> productList){
-//        super(context,resource,productList);
-//    }
-//
-//    @SuppressLint("SetTextI18n")
-//    @Override
-//    public View getView(int position, View convertView, ViewGroup parent) {
-//        Product product = getItem(position);
-//
-//        if(convertView == null){
-//            convertView = LayoutInflater.from(getContext()).inflate(R.layout.custom_list_view,parent,false);
-//        }
-//        Utils utils = new Utils();
-//
-//        TextView nameProduct = (TextView) convertView.findViewById(R.id.product_name);
-//        TextView descProduct = (TextView) convertView.findViewById(R.id.product_price);
-//
-//        nameProduct.setText(product.getName());
-//        descProduct.setText(Double.toString(utils.decimalFormat(product.getPrice())));
-//
-//        return convertView;
-//    }
 }
