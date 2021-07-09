@@ -5,14 +5,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ecoshop.AdapterProduct;
 import com.example.ecoshop.R;
 import com.example.ecoshop.Utils;
+import com.example.ecoshop.adapter.AdapterProduct;
 import com.example.ecoshop.authentication.Conection;
 import com.example.ecoshop.model.Product;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,6 +33,8 @@ public class Shop extends Fragment {
     DatabaseReference databaseReference;
 
     private RecyclerView product_list;
+    private EditText searchinput;
+
     public static ArrayList<Product> products = new ArrayList<Product>();
 
     Utils utils = new Utils();
@@ -42,6 +46,11 @@ public class Shop extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL,false);
         product_list = view.findViewById(R.id.products);
         product_list.setLayoutManager(layoutManager);
+
+        searchinput = view.findViewById(R.id.search);
+        ImageButton searchbtn = view.findViewById(R.id.btn_search);
+
+        searchbtn.setOnClickListener(v -> { search(); });
 
 //        product_list.setOnItemClickListener((parent, view1, position, id) -> {
 //            Product productSelected = (Product) parent.getItemAtPosition(position);
@@ -88,6 +97,19 @@ public class Shop extends Fragment {
                 }
             });
         }
+    }
+
+    private void search(){
+
+        String searchProduct = searchinput.getText().toString();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("product", searchProduct);
+
+        Search search = new Search();
+        search.setArguments(bundle);
+
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,search).commit();
     }
 
     private void read(String name, String description, double price) {
