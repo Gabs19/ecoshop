@@ -77,6 +77,6 @@ public class Login extends AppCompatActivity {
 
     protected void onStart(){
         super.onStart();
-        auth = Conection.getFirebaseAuth();
+        auth = FirebaseAuth.getInstance();
     }
 }

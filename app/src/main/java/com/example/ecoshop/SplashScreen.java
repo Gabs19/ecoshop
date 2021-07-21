@@ -6,7 +6,7 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SplashScreen extends AppCompatActivity {
+public class    SplashScreen extends AppCompatActivity {
     
 
 
@@ -19,7 +19,7 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void login() {
-        Intent intentLogin = new Intent(SplashScreen.this, Login.class);
+        Intent intentLogin = new Intent(SplashScreen.this, WelcomeActivity.class);
         startActivity(intentLogin);
         finish();
     }

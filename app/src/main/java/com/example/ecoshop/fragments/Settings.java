@@ -1,5 +1,6 @@
 package com.example.ecoshop.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.ecoshop.R;
+import com.example.ecoshop.WelcomeActivity;
 import com.example.ecoshop.authentication.Conection;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,7 +29,7 @@ public class Settings extends Fragment {
     FirebaseDatabase database;
     DatabaseReference databaseReference;
 
-    Button sellerBtn;
+    Button sellerBtn, logoutBtn;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -36,11 +38,19 @@ public class Settings extends Fragment {
         View view  =  inflater.inflate(R.layout.fragments_settings,container,false);
 
         sellerBtn = view.findViewById(R.id.seller);
+        logoutBtn = view.findViewById(R.id.logoutBtn);
 
         sellerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 seller();
+            }
+        });
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                auth.signOut();
+                startActivity(new Intent(getActivity(), WelcomeActivity.class));
             }
         });
 
@@ -49,8 +59,8 @@ public class Settings extends Fragment {
 
     public void onStart() {
         super.onStart();
-        auth = Conection.getFirebaseAuth();
-        user = Conection.getFirebaseUser();
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference();
     }

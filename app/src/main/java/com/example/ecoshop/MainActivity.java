@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity{
 
     public void onStart() {
         super.onStart();
-        auth = Conection.getFirebaseAuth();
-        user = Conection.getFirebaseUser();
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference();
     }
