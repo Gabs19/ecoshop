@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="231dp"
+        android:layout_height="230dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="91dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="71dp"
+        app:srcCompat="@drawable/ic_vegetables"
+        tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/name"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="77dp"
+        android:layout_marginTop="75dp"
+        />
+
+    <TextView
+        android:id="@+id/product_desc"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="78dp"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+         />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_desc"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="42dp"
+        android:text="R$" />
+
+    <TextView
+        android:id="@+id/price"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_desc"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="48dp"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        />
+
+    <Button
+        android:id="@+id/button"
+        android:background="@drawable/input_round"
+        android:backgroundTint="@color/dark_green"
+        android:textColor="@color/white"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/price"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="20dp"
+        android:text="Comprar" />
+
+
+</RelativeLayout>
