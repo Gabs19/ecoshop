@@ -21,6 +21,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 public class AddProducts extends Fragment {
@@ -62,6 +65,11 @@ public class AddProducts extends Fragment {
             product.setDescription(descProduct.getText().toString().toLowerCase());
             product.setPrice(Float.parseFloat(price.getText().toString()));
             product.setSeller(user.getUid());
+
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = new Date();
+
+            product.setData(dateFormat.format(date));
 
             databaseReference.child("Product").child(product.getId()).setValue(product);
             alert("Produto cadastado com sucesso!");

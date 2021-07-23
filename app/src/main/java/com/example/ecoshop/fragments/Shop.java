@@ -1,6 +1,5 @@
 package com.example.ecoshop.fragments;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,16 +50,6 @@ public class Shop extends Fragment {
         ImageButton searchbtn = view.findViewById(R.id.btn_search);
 
         searchbtn.setOnClickListener(v -> { search(); });
-
-//        product_list.setOnItemClickListener((parent, view1, position, id) -> {
-//            Product productSelected = (Product) parent.getItemAtPosition(position);
-//            String productName = productSelected.getName();
-//            String productdesc = productSelected.getDescription();
-//            double productprice = utils.decimalFormat(productSelected.getPrice());
-//
-//            read(productName, productdesc, productprice);
-//        });
-
         return view;
     }
 
@@ -76,16 +65,17 @@ public class Shop extends Fragment {
     private void productViewList() {
 
         if (user != null) {
+
             DatabaseReference productReference = database.getReference().child("Product");
 
-            productReference.orderByChild("name").addValueEventListener(new ValueEventListener() {
+            productReference.orderByChild("name").limitToFirst(10).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot snapshot) {
                     products.clear();
                     for (DataSnapshot productObj : snapshot.getChildren()) {
                         products.add(productObj.getValue(Product.class));
                         if (getActivity() != null){
-                            AdapterProduct adapter = new AdapterProduct(getContext(),products);
+                            AdapterProduct adapter = new AdapterProduct(getContext(), products);
                             product_list.setAdapter(adapter);
                         }
                     }
@@ -112,11 +102,4 @@ public class Shop extends Fragment {
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,search).commit();
     }
 
-    private void read(String name, String description, double price) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Produto");
-        builder.setMessage(name + "\n" + description + "\n" + price);
-        builder.create();
-        builder.show();
-    }
 }
