@@ -34,6 +34,7 @@ public class Shop extends Fragment {
 
     private RecyclerView product_list;
     private EditText searchinput;
+    private FloatingActionButton addButton;
 
     public static ArrayList<Product> products = new ArrayList<Product>();
 
@@ -50,13 +51,9 @@ public class Shop extends Fragment {
         searchinput = view.findViewById(R.id.search);
         ImageButton searchbtn = view.findViewById(R.id.btn_search);
 
-        FloatingActionButton floatingActionButton = view.findViewById(R.id.btn_add_prod);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddProducts()).commit();
-            }
-        });
+        addButton = view.findViewById(R.id.btn_add_prod);
+
+        addButton.setOnClickListener(v -> getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddProducts()).commit());
 
         searchbtn.setOnClickListener(v -> { search(); });
         return view;
@@ -68,6 +65,7 @@ public class Shop extends Fragment {
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference();
 
+        verificarVendedor();
         productViewList();
     }
 
@@ -111,4 +109,39 @@ public class Shop extends Fragment {
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,search).commit();
     }
 
+    private void verificarVendedor() {
+
+        if (user != null) {
+
+            DatabaseReference verificar = database.getReference().child("User");
+
+
+            verificar.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot snapshot) {
+                    for (DataSnapshot snap : snapshot.getChildren()) {
+                        System.out.println(user.getUid());
+                        System.out.println();
+                        if (snap.child("id").getValue(String.class).equals(user.getUid())) {
+
+                            if (snap.child("seller").getValue(Boolean.class) == true) {
+                                addButton.setVisibility(View.VISIBLE);
+                                addButton.setEnabled(true);
+
+                            } else {
+                                addButton.setVisibility(View.GONE);
+                                addButton.setEnabled(false);
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+
+                }
+            });
+
+        }
+    }
 }
