@@ -70,8 +70,10 @@ public class Settings extends Fragment {
         if(user != null) {
             if (sellerBtn.getText().equals("Torne-se Vendedor")){
                 databaseReference.child("User").child(user.getUid()).child("seller").setValue(true);
-            } else {
                 sellerBtn.setText("Deixe de ser Vendedor");
+            } else if (sellerBtn.getText().equals("Deixe de ser Vendedor")) {
+                databaseReference.child("User").child(user.getUid()).child("seller").setValue(false);
+                sellerBtn.setText("Torne-se Vendedor");
             }
         }
     }
