@@ -12,15 +12,17 @@ public class Product implements Parcelable {
     //String do ID
     private String sellerId;
     private Company company;
+    private boolean like;
 
-    public Product(String id, String name, String description, double price, String seller, Company company, String data) {
+    public Product(String id, String name, String description, double price, String seller, Company company, String date, boolean like) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.sellerId = seller;
         this.company = company;
-        this.date = data;
+        this.date = date;
+        this.like = like;
     }
 
 

@@ -66,6 +66,7 @@ public class Settings extends Fragment {
     }
 
     public void seller(){
+        //consertar esse código
         if(user != null) {
             if (sellerBtn.getText().equals("Torne-se Vendedor")){
                 databaseReference.child("User").child(user.getUid()).child("seller").setValue(true);

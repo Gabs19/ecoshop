@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -27,9 +28,11 @@ public class WelcomeActivity extends AppCompatActivity {
         //se sim, acesso a loja, caso contrário tela de login
         if (auth.getCurrentUser() != null){
             startActivity(new Intent(this, MainActivity.class));
+            Log.i("UserLogin", "Usuário está logado!");
             finish();
         }else{
             startActivity(new Intent(this, Login.class));
+            Log.i("UserLogin", "Usuário não está logado!");
             finish();
         }
     }
