@@ -16,6 +16,7 @@ import com.example.ecoshop.Utils;
 import com.example.ecoshop.adapter.AdapterProduct;
 import com.example.ecoshop.authentication.Conection;
 import com.example.ecoshop.model.Product;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -49,6 +50,14 @@ public class Shop extends Fragment {
         searchinput = view.findViewById(R.id.search);
         ImageButton searchbtn = view.findViewById(R.id.btn_search);
 
+        FloatingActionButton floatingActionButton = view.findViewById(R.id.btn_add_prod);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddProducts()).commit();
+            }
+        });
+
         searchbtn.setOnClickListener(v -> { search(); });
         return view;
     }
@@ -68,7 +77,7 @@ public class Shop extends Fragment {
 
             DatabaseReference productReference = database.getReference().child("Product");
 
-            productReference.orderByChild("name").limitToFirst(10).addValueEventListener(new ValueEventListener() {
+            productReference.orderByChild("name").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot snapshot) {
                     products.clear();
