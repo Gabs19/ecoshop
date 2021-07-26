@@ -7,20 +7,25 @@ public class Product implements Parcelable {
     private String id;
     private String name;
     private String description;
+    private String date;
     private double price;
-    private String seller;
-    private String data;
+    //String do ID
+    private String sellerId;
+    private Company company;
 
-    public Product() {
-    }
-
-    public Product(String id, String nome, String description,double price, String seller,String data) {
+    public Product(String id, String name, String description, double price, String seller, Company company, String data) {
         this.id = id;
-        this.name = nome;
+        this.name = name;
         this.description = description;
         this.price = price;
-        this.seller = seller;
-        this.data = data;
+        this.sellerId = seller;
+        this.company = company;
+        this.date = data;
+    }
+
+
+
+    public Product() {
     }
 
     protected Product(Parcel in) {
@@ -28,8 +33,8 @@ public class Product implements Parcelable {
         name = in.readString();
         description = in.readString();
         price = in.readDouble();
-        seller = in.readString();
-        data = in.readString();
+        sellerId = in.readString();
+        date = in.readString();
     }
 
     public static final Creator<Product> CREATOR = new Creator<Product>() {
@@ -77,19 +82,19 @@ public class Product implements Parcelable {
     }
 
     public String getSeller() {
-        return seller;
+        return sellerId;
     }
 
     public void setSeller(String seller) {
-        this.seller = seller;
+        this.sellerId = seller;
     }
 
-    public String getData() {
-        return data;
+    public String getDate() {
+        return date;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     @Override
@@ -108,7 +113,7 @@ public class Product implements Parcelable {
         dest.writeString(name);
         dest.writeString(description);
         dest.writeDouble(price);
-        dest.writeString(seller);
-        dest.writeString(data);
+        dest.writeString(sellerId);
+        dest.writeString(date);
     }
 }

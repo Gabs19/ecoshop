@@ -69,7 +69,7 @@ public class AddProducts extends Fragment {
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
 
-            product.setData(dateFormat.format(date));
+            product.setDate(dateFormat.format(date));
 
             databaseReference.child("Product").child(product.getId()).setValue(product);
             alert("Produto cadastado com sucesso!");

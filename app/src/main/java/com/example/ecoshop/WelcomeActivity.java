@@ -21,9 +21,10 @@ public class WelcomeActivity extends AppCompatActivity {
         checkUser();
     }
 
-
+    //Método verifica se o há algum usuário logado
     public void checkUser() {
         auth = FirebaseAuth.getInstance();
+        //se sim, acesso a loja, caso contrário tela de login
         if (auth.getCurrentUser() != null){
             startActivity(new Intent(this, MainActivity.class));
             finish();
