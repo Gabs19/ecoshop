@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -37,6 +38,24 @@ public class DetailsProducts extends Fragment {
         String price_product = Double.toString(utils.decimalFormat(product.getPrice()));
         price.setText(price_product);
 
+        ImageButton favorites = view.findViewById(R.id.favorites);
+        ImageButton nonFavorites = view.findViewById(R.id.non_favorites);
+
+        favorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                favorites.setVisibility(View.GONE);
+                nonFavorites.setVisibility(View.VISIBLE);
+            }
+        });
+
+        nonFavorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nonFavorites.setVisibility(View.GONE);
+                favorites.setVisibility(View.VISIBLE);
+            }
+        });
         return view;
     }
 
