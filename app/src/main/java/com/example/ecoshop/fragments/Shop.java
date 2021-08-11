@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
@@ -35,10 +36,12 @@ public class Shop extends Fragment {
     private RecyclerView product_list;
     private EditText searchinput;
     private FloatingActionButton addButton;
+    private Button btn_legume,btn_verdura, btn_fruta;
 
     public static ArrayList<Product> products = new ArrayList<Product>();
 
     Utils utils = new Utils();
+    TypeProducts typeProducts = new TypeProducts();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
@@ -52,8 +55,34 @@ public class Shop extends Fragment {
         ImageButton searchbtn = view.findViewById(R.id.btn_search);
 
         addButton = view.findViewById(R.id.btn_add_prod);
-
         addButton.setOnClickListener(v -> getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddProducts()).commit());
+
+        btn_legume = view.findViewById(R.id.btn_legume);
+        btn_legume.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("type", "Legume");
+
+            typeProducts.setArguments(bundle);
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,typeProducts).commit();
+        });
+
+        btn_verdura = view.findViewById(R.id.btn_verdura);
+        btn_verdura.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("type", "Verdura");
+
+            typeProducts.setArguments(bundle);
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,typeProducts).commit();
+        });
+
+        btn_fruta = view.findViewById(R.id.btn_fruta);
+        btn_fruta.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("type", "Fruta");
+
+            typeProducts.setArguments(bundle);
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,typeProducts).commit();
+        });
 
         searchbtn.setOnClickListener(v -> { search(); });
         return view;
