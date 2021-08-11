@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Ecoshop </string>
+
+    <string-array name="types">
+        <item>Legume</item>
+        <item>Verdura</item>
+        <item>Fruta</item>
+    </string-array>
+
 </resources>
+
