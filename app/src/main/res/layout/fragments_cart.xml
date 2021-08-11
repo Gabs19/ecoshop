@@ -65,5 +65,19 @@
         android:layout_toRightOf="@+id/valor"
         android:text="R$" />
 
+    <Button
+        android:id="@+id/finishBuy"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/btn_arredondado"
+        android:textColor="@color/white"
+        android:text="Finalizar compra" />
+
 
 </RelativeLayout>
