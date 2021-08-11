@@ -5,6 +5,11 @@
         android:icon="@drawable/ic_mall"
         android:title="Mercado" />
 
+    <item android:id="@+id/nav_cart"
+        android:icon="@drawable/ic_cart"
+        android:title="Carrinho"
+        />
+
     <item android:id="@+id/nav_fav"
         android:icon="@drawable/ic_fav"
         android:title="Favoritos" />

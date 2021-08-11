@@ -9,23 +9,18 @@ public class Product implements Parcelable {
     private String description;
     private String date;
     private double price;
-    //String do ID
+    private String type;
     private String sellerId;
-    private Company company;
-    private boolean like;
 
-    public Product(String id, String name, String description, double price, String seller, Company company, String date, boolean like) {
+    public Product(String id, String name, String description, double price, String type, String seller, String date) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
+        this.type = type;
         this.sellerId = seller;
-        this.company = company;
         this.date = date;
-        this.like = like;
     }
-
-
 
     public Product() {
     }
@@ -35,6 +30,7 @@ public class Product implements Parcelable {
         name = in.readString();
         description = in.readString();
         price = in.readDouble();
+        type = in.readString();
         sellerId = in.readString();
         date = in.readString();
     }
@@ -83,6 +79,14 @@ public class Product implements Parcelable {
         this.price = price;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public String getSeller() {
         return sellerId;
     }
@@ -115,6 +119,7 @@ public class Product implements Parcelable {
         dest.writeString(name);
         dest.writeString(description);
         dest.writeDouble(price);
+        dest.writeString(type);
         dest.writeString(sellerId);
         dest.writeString(date);
     }

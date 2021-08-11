@@ -120,8 +120,6 @@ public class Shop extends Fragment {
                 @Override
                 public void onDataChange(DataSnapshot snapshot) {
                     for (DataSnapshot snap : snapshot.getChildren()) {
-                        System.out.println(user.getUid());
-                        System.out.println();
                         if (snap.child("id").getValue(String.class).equals(user.getUid())) {
 
                             if (snap.child("seller").getValue(Boolean.class) == true) {

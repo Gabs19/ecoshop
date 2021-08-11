@@ -7,7 +7,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.example.ecoshop.authentication.Conection;
+import com.example.ecoshop.fragments.Cart;
 import com.example.ecoshop.fragments.Favorites;
 import com.example.ecoshop.fragments.Settings;
 import com.example.ecoshop.fragments.Shop;
@@ -52,6 +52,10 @@ public class MainActivity extends AppCompatActivity{
             switch (menuItem.getItemId()){
                 case R.id.nav_shop:
                     selectFragment = new Shop();
+                    break;
+
+                case R.id.nav_cart:
+                    selectFragment = new Cart();
                     break;
 
                 case R.id.nav_fav:

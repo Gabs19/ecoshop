@@ -77,7 +77,6 @@ public class AddProducts extends Fragment {
             nameProduct.setText("");
             descProduct.setText("");
             price.setText("");
-
         }
     }
 
