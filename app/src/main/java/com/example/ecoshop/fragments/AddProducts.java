@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,6 +35,7 @@ public class AddProducts extends Fragment {
     DatabaseReference databaseReference;
 
     EditText nameProduct,descProduct,price;
+    Spinner typeProduct;
     Button registerProduct;
 
     @Nullable
@@ -44,6 +47,11 @@ public class AddProducts extends Fragment {
         nameProduct = view.findViewById(R.id.product_name);
         descProduct = view.findViewById(R.id.product_desc);
         price = view.findViewById(R.id.product_price);
+        typeProduct = view.findViewById(R.id.type);
+
+        ArrayAdapter<String> types = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.types));
+        types.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        typeProduct.setAdapter(types);
 
         registerProduct = view.findViewById(R.id.btn_register_product);
 
@@ -64,6 +72,7 @@ public class AddProducts extends Fragment {
             product.setName(nameProduct.getText().toString().toLowerCase());
             product.setDescription(descProduct.getText().toString().toLowerCase());
             product.setPrice(Float.parseFloat(price.getText().toString()));
+            product.setType(typeProduct.getSelectedItem().toString());
             product.setSeller(user.getUid());
 
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
