@@ -72,7 +72,8 @@ public class Cart extends Fragment {
                         products.add(snap.getValue(Product.class));
 
                         valor = valor + snap.getValue(Product.class).getPrice();
-                        valorTotal.setText(Double.toString(valor));
+                        valorTotal.setText(Double.toString(utils.decimalFormat(valor)));
+
                         if (getActivity() != null){
                             AdapterSearch adapter = new AdapterSearch(getContext(),products);
                             cart_list.setAdapter(adapter);

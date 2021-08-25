@@ -62,7 +62,6 @@ public class Search extends Fragment {
 
     private void productViewList() {
 
-
         if (user != null) {
             DatabaseReference productReference = database.getReference().child("Product");
             productReference.orderByChild("name").equalTo(productSearch).addValueEventListener(new ValueEventListener() {

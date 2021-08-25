@@ -10,9 +10,9 @@
         android:title="Carrinho"
         />
 
-    <item android:id="@+id/nav_fav"
+    <!--- item android:id="@+id/nav_fav"
         android:icon="@drawable/ic_fav"
-        android:title="Favoritos" />
+        android:title="Favoritos" /-->
 
     <item android:id="@+id/settings"
         android:icon="@drawable/ic_settings"

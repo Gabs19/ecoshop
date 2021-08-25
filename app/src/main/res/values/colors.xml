@@ -10,4 +10,5 @@
     <color name="background_color">#96BA99</color>
     <color name="dark_green">#024F4F</color> <!--cor dos botões e headers-->
     <color name="background_color_bar">#036767</color>
+    <color name="red">#B50715</color>
 </resources>

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color">
@@ -8,17 +11,17 @@
         android:id="@+id/products"
         android:layout_width="match_parent"
         android:layout_height="260dp"
-        android:layout_below="@+id/search"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -26,90 +29,90 @@
         android:id="@+id/search"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/input_round"
-        android:hint="Procurar produto" />
+        android:hint="Procurar produto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/btn_search"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignTop="@+id/search"
-        android:layout_alignRight="@+id/search"
-        android:layout_alignBottom="@+id/search"
+        android:backgroundTint="@color/white"
+        android:gravity="center_horizontal"
         android:padding="5dp"
         android:src="@drawable/ic_search"
         android:textAlignment="center"
-        android:backgroundTint="@color/white"
         android:tint="@color/dark_green"
-        android:layout_alignEnd="@+id/search"
-        android:gravity="center_horizontal" />
+        app:layout_constraintBottom_toBottomOf="@+id/search"
+        app:layout_constraintEnd_toEndOf="@+id/search"
+        app:layout_constraintRight_toRightOf="@+id/search"
+        app:layout_constraintTop_toTopOf="@+id/search" />
 
     <Button
         android:id="@+id/btn_legume"
-        android:textColor="@color/white"
-        android:background="@drawable/btn_arredondado"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:layout_below="@+id/products"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="50dp"
-        android:text="Legumes" />
+        android:background="@drawable/btn_arredondado"
+        android:text="Legumes"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/products" />
 
     <Button
         android:id="@+id/btn_verdura"
-        android:textColor="@color/white"
-        android:background="@drawable/btn_arredondado"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:layout_below="@+id/products"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="45dp"
         android:layout_marginTop="50dp"
-        android:layout_toEndOf="@+id/btn_legume"
-        android:layout_toRightOf="@+id/btn_legume"
-        android:text="Verduras" />
+        android:background="@drawable/btn_arredondado"
+        android:text="Verduras"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toRightOf="@+id/btn_legume"
+        app:layout_constraintStart_toEndOf="@+id/btn_legume"
+        app:layout_constraintTop_toBottomOf="@+id/products" />
 
     <Button
         android:id="@+id/btn_fruta"
-        android:textColor="@color/white"
-        android:background="@drawable/btn_arredondado"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:layout_below="@+id/products"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="52dp"
         android:layout_marginTop="50dp"
-        android:layout_toEndOf="@+id/btn_verdura"
-        android:layout_toRightOf="@+id/btn_verdura"
-        android:text="Frutas" />
+        android:background="@drawable/btn_arredondado"
+        android:text="Frutas"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toRightOf="@+id/btn_verdura"
+        app:layout_constraintStart_toEndOf="@+id/btn_verdura"
+        app:layout_constraintTop_toBottomOf="@+id/products" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_add_prod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginEnd="38dp"
         android:layout_marginRight="38dp"
         android:layout_marginBottom="52dp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_add"
         android:tint="@color/dark_green"
         android:visibility="invisible"
-        android:backgroundTint="@color/white"
-        android:src="@drawable/ic_add" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

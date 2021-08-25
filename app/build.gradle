@@ -45,6 +45,9 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
     implementation("androidx.cardview:cardview:1.0.0")
 
+    //gps biblioteca
+    implementation("com.google.android.gms:play-services-location:18.0.0")
+
     //firebase bibliotecas
     implementation platform('com.google.firebase:firebase-bom:28.1.0')
     implementation 'com.google.firebase:firebase-analytics'
