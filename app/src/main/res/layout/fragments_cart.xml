@@ -50,8 +50,7 @@
         android:layout_toEndOf="@+id/textView6"
         android:layout_toRightOf="@+id/textView6"
         android:text="0,00"
-        android:textSize="30dp"
-        />
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/textView8"
