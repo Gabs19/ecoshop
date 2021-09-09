@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -57,7 +59,8 @@ public class Cart extends Fragment {
     Button att_address;
     Spinner payment;
 
-    TextView valorTotal,show_address;
+    TextView valorTotal,show_address,trocoText;
+    EditText troco;
     Utils utils = new Utils();
 
     FusedLocationProviderClient fusedLocationProviderClient;
@@ -73,6 +76,8 @@ public class Cart extends Fragment {
         att_address = view.findViewById(R.id.att_address);
         show_address = view.findViewById(R.id.show_address);
         payment = view.findViewById(R.id.payment);
+        trocoText = view.findViewById(R.id.troco);
+        troco = view.findViewById(R.id.change);
 
         ArrayAdapter<String> types = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.payment));
         types.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -92,6 +97,26 @@ public class Cart extends Fragment {
                 }
             }
         });
+
+        payment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Object item = parent.getItemAtPosition(position);
+                if (item.equals("Dinheiro")) {
+                    trocoText.setVisibility(View.VISIBLE);
+                    trocoText.setEnabled(true);
+
+                    troco.setVisibility(View.VISIBLE);
+                    troco.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         return view;
     }
 

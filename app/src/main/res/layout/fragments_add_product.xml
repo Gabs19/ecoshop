@@ -67,11 +67,11 @@
                     android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.484"
+                    app:layout_constraintHorizontal_bias="0.515"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.182" />
+                    app:layout_constraintVertical_bias="0.076" />
 
                 <EditText
                     android:id="@+id/product_desc"
@@ -116,14 +116,17 @@
                     android:id="@+id/type"
                     android:layout_width="180dp"
                     android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="26dp"
                     android:background="@drawable/input_round"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.873"
+                    app:layout_constraintHorizontal_bias="0.877"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/product_desc"
-                    app:layout_constraintVertical_bias="0.335"
+                    app:layout_constraintVertical_bias="0.11"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -135,9 +138,10 @@
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.494"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/product_desc"
-                    app:layout_constraintVertical_bias="0.834"
+                    app:layout_constraintVertical_bias="0.917"
                     tools:ignore="UnknownId" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
